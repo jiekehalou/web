@@ -64,7 +64,9 @@
 
                         </p>
                         <p class="submit-con">
-                            <button class="btn btn-primary submit" @click.prevent.stop="login">立即登录</button>
+                            <button class="btn btn-primary submit"
+                                    :disabled="submitDisabled"
+                                    @click.prevent.stop="submitHandle">立即登录</button>
                         </p>
                     </form>
                     <form action=""
@@ -98,7 +100,9 @@
                             </div>
                         </div>
                         <p class="submit-con">
-                            <button class="btn btn-primary submit" @click.prevent.stop="login">立即登录</button>
+                            <button class="btn btn-primary submit"
+                                    :disabled="submitDisabled"
+                                    @click.prevent.stop="submitHandle">立即登录</button>
                         </p>
                     </form>
                     <!-- <p class="other-way">
@@ -112,7 +116,6 @@
                     <span class="hasaction pull-right">立即注册</span>
                 </p> -->
                 </div>
-
             </div>
         </div>
         <Footer />
@@ -122,6 +125,7 @@
 import Header from "@/components/header/index";
 import Footer from "@/components/footer/index";
 import { tool } from "@/assets/js/util.js";
+import { Users_login } from "@/api/login.js";
 export default {
     //   name: '',
     components: {
@@ -137,21 +141,22 @@ export default {
             inputType: '',
             showPass: false,
             userForm: {
-                userName: "admin",
-                passWord: "goodluck",
+                userName: "whj",
+                passWord: 'admin',
             },
             phoneForm: {
                 phoneNum: 18600592133,
                 phoneCode: '',
             },
             dateTime: tool.formatDate(new Date(Date.now()), 'yyyy-MM-dd hh:mm'),
-            timer: null
+            timer: null,
+            submitDisabled:false
         }
     },
     computed: {
 
     },
-    created(){this.refresTime()},
+    created () { this.refresTime() },
     methods: {
         inputFocus (type) {
             this.inputType = type
@@ -162,8 +167,24 @@ export default {
                 this.dateTime = tool.formatDate(new Date(Date.now()), 'yyyy-MM-dd hh:mm')
             }, 1000);
         },
-        login(){
-          this.$router.push('/home')
+        submitHandle () {
+            let { userName, passWord } = this.userForm;
+            let sendData = {
+                password: passWord,
+                user: userName,
+            }
+            this.submitDisabled=true;
+            Users_login(sendData).then((data) => {
+                this.submitDisabled=false;
+                let { code, message } = data
+                if (!code) {
+                    this.$Message.error(message);
+                } else {
+                    this.$Message.success('登陆成功', '', () => { }
+                    );
+                    this.$router.push('/home')
+                }
+            })
         }
     },
     beforeDestroy () {
@@ -172,7 +193,6 @@ export default {
     }
 }
 </script>
-
 <style   lang="scss"   scoped>
 @import "~@/assets/css/login.css";
 .login-con {

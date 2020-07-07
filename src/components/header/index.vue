@@ -4,7 +4,7 @@
  * @Date: 2020-06-29 13:51:21
 --> 
 <template>
-    <header class="header shadow noselction">
+    <header class="header shadow noselction" :class="{'fixed':fixed}" >
         <div class="container header-wrap">
             <div class='logo pull-left'>
                 <img src="../../assets/img/uncle.png"
@@ -28,6 +28,14 @@ export default {
     components: {
     },
     props: {
+        fixed: {
+            type: Boolean,
+            // 对象或数组默认值必须从一个工厂函数获取
+            default: function () {
+                return false
+            }
+        }
+
     },
     data () {
         return {
@@ -50,6 +58,10 @@ export default {
     padding: 0 20px;
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.9);
+    &.fixed {
+        top:0;
+        position: fixed;
+    }
 }
 .header .header-wrap {
     height: 60px;
