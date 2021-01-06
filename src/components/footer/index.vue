@@ -1,6 +1,7 @@
 <template>
     <footer>
         &copy;版权所有
+        <a href="https://beian.miit.gov.cn" target="_blank" >豫ICP备2020035025号</a>
     </footer>
 </template>
 <script>
@@ -18,7 +19,6 @@ export default {
   computed: {
   },
   methods: {
-
   }
 }
 </script>

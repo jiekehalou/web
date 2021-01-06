@@ -19,8 +19,8 @@
             </template>
             <template slot="header-right">
                 <div class="user-tool">
-                    <Avatar src="http://124.70.132.216:3001/user.png"
-                            size="small" />
+                    <!-- <Avatar src="http://124.70.132.216:3001/user.png"
+                            size="small" /> -->
                     <i class="icon iconfont icon-tuichu exit"
                        @click="exit"></i>
                 </div>
@@ -43,18 +43,23 @@
                      v-for=" mo in modules"
                      :key="mo.id">
                     <span class="mo-title">{{mo.name}}</span>
-                    <img  class="mo-img" :src="mo.img" alt="">
+                    <img class="mo-img"
+                         :src="mo.img"
+                         alt="">
                 </div>
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 <script>
 import Header from "@/components/header/index";
+import Footer from "@/components/footer/index";
 export default {
     //   name: '',
     components: {
-        Header
+        Header,
+        Footer
     },
     props: {
     },
@@ -63,14 +68,14 @@ export default {
             msg: "主页",
             fixed: true,
             modules: [
-                { id: 1, name: "新闻", link: "",img: require('../assets/img/bg1.jpg') },
-                { id: 2, name: "资讯", link: "",img: require('../assets/img/demo1.jpeg')},
-                { id: 3, name: "本地头条", link: "",img: require('../assets/img/demo2.jpeg') },
-                { id: 4, name: "笔记", link: "" ,img: require('../assets/img/demo3.jpeg')},
-                { id: 5, name: "文章", link: "",img: require('../assets/img/bg1.jpg') },
-                { id: 6, name: "充电", link: "" ,img: require('../assets/img/bg1.jpg')},
-                { id: 7, name: "图片", link: "" ,img: require('../assets/img/bg1.jpg')},
-                { id: 8, name: "视频", link: "" ,img: require('../assets/img/bg1.jpg')},
+                { id: 1, name: "新闻", link: "", img: require('../assets/img/bg1.jpg') },
+                { id: 2, name: "资讯", link: "", img: require('../assets/img/demo1.jpeg') },
+                { id: 3, name: "本地头条", link: "", img: require('../assets/img/demo2.jpeg') },
+                { id: 4, name: "笔记", link: "", img: require('../assets/img/demo3.jpeg') },
+                { id: 5, name: "文章", link: "", img: require('../assets/img/bg1.jpg') },
+                { id: 6, name: "充电", link: "", img: require('../assets/img/bg1.jpg') },
+                { id: 7, name: "图片", link: "", img: require('../assets/img/bg1.jpg') },
+                { id: 8, name: "视频", link: "", img: require('../assets/img/bg1.jpg') },
             ],
             banners: [
                 { id: 1, bg: require('../assets/img/bg1.jpg') },
@@ -110,7 +115,6 @@ export default {
     }
 }
 </script>
-
 <style   lang="scss"   scoped>
 @import "~@/assets/css/theme.scss";
 $mo-bg: #fff;
@@ -120,6 +124,7 @@ $top-height: 60px;
 .home {
     height: 100%;
     padding-top: $top-height;
+    overflow-x: hidden;
     .nav-bar-top {
         float: left;
         vertical-align: middle;
@@ -265,7 +270,7 @@ $top-height: 60px;
                 font-size: 18px;
                 text-align: center;
             }
-            .mo-img{
+            .mo-img {
                 display: inline-block;
                 width: 100%;
                 height: 200 - 36px;
@@ -284,6 +289,20 @@ $top-height: 60px;
         100% {
             transform: rotateX(35deg) rotateY(-25deg) rotateZ(15deg)
                 translateX(-150px) translateZ(0px);
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .home {
+         padding-top: $top-height* 1.5;
+        .nav-bar-top {
+            ul {
+                height: $top-height * 1.5;
+                line-height: $top-height * 1.5;
+            }
+        }
+       .head-search {
+            display: none!important
         }
     }
 }

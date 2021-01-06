@@ -27,7 +27,8 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11",
-    "sass-resources-loader": "^2.0.3"
+    "sass-resources-loader": "^2.0.3",
+    "postcss-pxtorem": "^5.1.1"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

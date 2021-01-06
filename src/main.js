@@ -6,17 +6,10 @@ import iView from 'iview';
 import 'iview/dist/styles/iview.css';    // 使用 CSS
 import router from './router'
 import store from './store'
+import '@/assets/js/rem.js'
+import '@/assets/js/isPhone.js'
 Vue.use(iView); 
-Vue.config.productionTip = false
-let arr = [1, 2, 3];
-var o = {};
-arr.forEach(element => {
-  if (element === 2) { 
-    console.log('element', element);
-    return 
-  }
-  o[element] = element
-});
+Vue.config.productionTip = false;
 new Vue({
   router,
   store,

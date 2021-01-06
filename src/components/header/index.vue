@@ -4,7 +4,8 @@
  * @Date: 2020-06-29 13:51:21
 --> 
 <template>
-    <header class="header shadow noselction" :class="{'fixed':fixed}" >
+    <header class="header shadow noselction"
+            :class="{'fixed':fixed}">
         <div class="container header-wrap">
             <div class='logo pull-left'>
                 <img src="../../assets/img/uncle.png"
@@ -49,7 +50,6 @@ export default {
     }
 }
 </script>
-
 <style   lang="scss"   scoped>
 .header {
     width: 100%;
@@ -59,13 +59,12 @@ export default {
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.9);
     &.fixed {
-        top:0;
+        top: 0;
         position: fixed;
     }
 }
 .header .header-wrap {
-    height: 60px;
-    line-height: 60px;
+    height: 100%;
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -95,6 +94,7 @@ export default {
 .header .login-control {
     margin-right: 0;
     font-family: Tahoma, Helvetica, sans-serif;
+    font-size: 14px;
 }
 .header .login-control .division {
     color: #999;
@@ -117,6 +117,15 @@ export default {
 .header .login-control .register:focus,
 .header .login-control .login:focus {
     color: #3c99fc;
+}
+@media screen and (max-width: 768px) {
+    .header {
+        height: 90px;
+        line-height: 90px;
+        .header-wrap > .inline {
+            margin-right: 0;
+        }
+    }
 }
 </style>
 

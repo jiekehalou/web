@@ -46,8 +46,8 @@ module.exports = {
     hotOnly: false,
     proxy: {
       'login': {
-        target: 'http://124.70.132.216:3000/',//whj华为云
-        // target: 'http://192.168.0.189:28081/',
+        // target: 'http://124.70.132.216:3000/',//whj华为云
+        target: 'http://192.168.100.14:3000/',
         changeOrigin: true,
         // ws: true,
         pathRewrite: {
