@@ -13,5 +13,10 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
-  }
+  },
+  "globals": {
+    "BMapGL": true,
+    "BMAP_STATUS_SUCCESS": true,
+    "BMAP_ANIMATION_BOUNCE": true,
+  },
 }

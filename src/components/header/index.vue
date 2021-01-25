@@ -84,7 +84,9 @@ export default {
     vertical-align: middle;
 }
 .header .header-wrap .logo > img {
+    position: relative;
     height: 32px;
+    width: auto;
 }
 .header .header-wrap .logo > span {
     color: #000;

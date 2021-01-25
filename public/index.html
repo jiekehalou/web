@@ -15,12 +15,15 @@
     <!-- 控制状态栏显示样式 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- <script src="./static/libs/flex.js"></script> -->
+  <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+  <!-- 动态引入 -->
+  <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=<%= process.env.VUE_APP_TK %>" ></script>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app" ></div>
     <!-- built files will be auto injected -->
   </body>
 </html>

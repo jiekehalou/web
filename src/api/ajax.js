@@ -46,7 +46,7 @@ ajax.interceptors.request.use(function (config) {
 ajax.interceptors.response.use(function (response) {
     if (response.data) {
         const { isSucceed, statusCode } = response.data;
-        console.log('statusCode', statusCode);
+        // console.log('statusCode', statusCode);
         
         if (isSucceed) {
             // store.dispatch('publicInfo/fetchLoading', false);

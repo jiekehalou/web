@@ -1,31 +1,5 @@
 <template>
     <div class="home">
-        <Header :fixed="fixed"
-                ref="header">
-            <template slot="header-menu">
-                <div class="nav-bar-top">
-                    <ul>
-                        <li>首页</li>
-                        <li>文章</li>
-                        <li>笔记</li>
-                        <li>充电</li>
-                    </ul>
-                </div>
-                <div class="head-search inline">
-                    <input type="text"
-                           placeholder="请输入关键字">
-                    <i class="icon iconfont icon-sousuo"></i>
-                </div>
-            </template>
-            <template slot="header-right">
-                <div class="user-tool">
-                    <!-- <Avatar src="http://124.70.132.216:3001/user.png"
-                            size="small" /> -->
-                    <i class="icon iconfont icon-tuichu exit"
-                       @click="exit"></i>
-                </div>
-            </template>
-        </Header>
         <Carousel autoplay
                   loop
                   arrow="never"
@@ -49,18 +23,11 @@
                 </div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
 <script>
-import Header from "@/components/header/index";
-import Footer from "@/components/footer/index";
 export default {
     //   name: '',
-    components: {
-        Header,
-        Footer
-    },
     props: {
     },
     data () {
@@ -100,13 +67,14 @@ export default {
         //         return Reflect.set(target, propKey, value, receiver);
         //     }
         // });
+      
 
     },
     methods: {
         compuCarouselHeight () {
-            const top = this.$refs['header'].$el
-            const topH = top.offsetHeight
-            this.carouselHeight = document.body.clientHeight - topH;
+            // const top = this.$refs['header'].$el
+            // const topH = top.offsetHeight
+            // this.carouselHeight = document.body.clientHeight - topH;
         },
         exit () { this.$router.push('/login') }
     },
@@ -123,79 +91,8 @@ $banner-bg2: #e8f5fe;
 $top-height: 60px;
 .home {
     height: 100%;
-    padding-top: $top-height;
+    // padding-top: $top-height;
     overflow-x: hidden;
-    .nav-bar-top {
-        float: left;
-        vertical-align: middle;
-        margin-right: 20px;
-        ul {
-            font-size: 0;
-            height: 60px;
-            line-height: 60px;
-            li {
-                display: inline-block;
-                font-size: 16px;
-                padding: 0 15px;
-                cursor: pointer;
-                -webkit-transition: color 200ms ease-in-out;
-                -moz-transition: color 200ms ease-in-out;
-                -ms-transition: color 200ms ease-in-out;
-                -o-transition: color 200ms ease-in-out;
-                transition: color 200ms ease-in-out;
-                &:hover,
-                &:focus {
-                    color: #409eff;
-                }
-            }
-        }
-    }
-    .user-tool {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        > span,
-        > i {
-            margin: 0 4px;
-        }
-    }
-    .head-search {
-        height: 32px;
-        line-height: 32px;
-        position: relative;
-        i.icon-sousuo {
-            position: absolute;
-            font-size: 20px;
-            right: 5px;
-            top: 0;
-            cursor: pointer;
-        }
-        input {
-            width: 320px;
-            height: 32px;
-            padding-right: 30px;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 0 10px;
-            border: 1px solid #d9d9d9;
-            background-color: #e5e5e5;
-            outline: none;
-            border-radius: 2px;
-            &:focus {
-                background-color: #fff;
-                border-color: 1px solid #f2f2f2;
-            }
-        }
-    }
-    .exit {
-        font-size: 22px;
-        color: #999;
-        cursor: pointer;
-        &:hover {
-            color: $base;
-        }
-    }
     .banner {
         position: relative;
         z-index: 0;
@@ -292,19 +189,6 @@ $top-height: 60px;
         }
     }
 }
-@media screen and (max-width: 768px) {
-    .home {
-         padding-top: $top-height* 1.5;
-        .nav-bar-top {
-            ul {
-                height: $top-height * 1.5;
-                line-height: $top-height * 1.5;
-            }
-        }
-       .head-search {
-            display: none!important
-        }
-    }
-}
+
 </style>
 

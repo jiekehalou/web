@@ -54,6 +54,16 @@ module.exports = {
           '^/login': ''
         },
       },
+      //由于申请的是浏览器端的ak不是服务器端
+      'baidu': {
+        // target: 'http://124.70.132.216:3000/',//whj华为云
+        target: 'http://api.map.baidu.com/',
+        changeOrigin: true,
+        // ws: true,
+        pathRewrite: {
+          '^/baidu': ''
+        },
+      },
       // '/notice': {  //whj 通知公告代理前缀
       //   target: 'http://172.22.26.180:8091/',
       //   changeOrigin: true,
